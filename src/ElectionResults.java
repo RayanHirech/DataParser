@@ -106,4 +106,21 @@ public class ElectionResults {
         this.combinedFips = val;
     }
 
+    public String toString() {
+        String output = "";
+
+        output += votesDem + ", ";
+        output += votesGOP + ", ";
+        output += totalVotes + ", ";
+        output += perDem + ", ";
+        output += perGOP + ", ";
+        output += diff + ", ";
+        output += perPointDiff + ", ";
+        output += stateAbbr + ", ";
+        output += countyName + ", ";
+        output += combinedFips;
+
+        return output;
+    }
+
 }
