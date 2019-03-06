@@ -30,17 +30,7 @@ public class Utils {
         for (int i = 0; i < dataSet.length; i++) {
             String str = removeJunk(dataSet[i]);
             String[] values = str.split(",");
-            double votesDem = Double.parseDouble(values[0]);
-            double votesGOP = Double.parseDouble(values[1]);
-            double totalVotes = Double.parseDouble(values[2]);
-            double perDem = Double.parseDouble(values[3]);
-            double perGOP = Double.parseDouble(values[4]);
-            int diff = Integer.parseInt(values[5]);
-            double perPointDiff = Double.parseDouble(values[6]);
-            String stateAbbr = values[7];
-            String countyName = values[8];
-            int combinedFips = Integer.parseInt(values[9]);
-            ElectionResults electionResults = new ElectionResults(votesDem, votesGOP, totalVotes, perDem, perGOP, diff, perPointDiff, stateAbbr, countyName, combinedFips);
+            ElectionResults electionResults = createElectionResults(values);
             output.add(electionResults);
         }
 
@@ -82,6 +72,21 @@ public class Utils {
 
         return str;
 
+    }
+
+    private static ElectionResults createElectionResults(String[] values) {
+        double votesDem = Double.parseDouble(values[0]);
+        double votesGOP = Double.parseDouble(values[1]);
+        double totalVotes = Double.parseDouble(values[2]);
+        double perDem = Double.parseDouble(values[3]);
+        double perGOP = Double.parseDouble(values[4]);
+        int diff = Integer.parseInt(values[5]);
+        double perPointDiff = Double.parseDouble(values[6]);
+        String stateAbbr = values[7];
+        String countyName = values[8];
+        int combinedFips = Integer.parseInt(values[9]);
+        ElectionResults output = new ElectionResults(votesDem, votesGOP, totalVotes, perDem, perGOP, diff, perPointDiff, stateAbbr, countyName, combinedFips);
+        return output;
     }
 
 }
