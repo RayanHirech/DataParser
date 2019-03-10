@@ -28,7 +28,7 @@ public class Utils {
         String[] dataSet = data.split("\n");
 
         for (int i = 0; i < dataSet.length; i++) {
-            String str = removeJunk(dataSet[i]);
+            String str = removeJunkFromElectionData(dataSet[i]);
             String[] values = str.split(",");
             ElectionResults electionResults = createElectionResults(values);
             output.add(electionResults);
@@ -37,7 +37,7 @@ public class Utils {
         return output;
     }
 
-    private static String removeJunk(String str) {
+    private static String removeJunkFromElectionData(String str) {
 
         String str1, str2, str3;
         int firstQuote = 0, secondQuote = 0, quotedComma = 0;

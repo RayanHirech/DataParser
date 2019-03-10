@@ -1,5 +1,7 @@
 public class Election2016 {
 
+    private ElectionResults electionResults;
+
     private double demVotes;
     private double gopVotes;
     private double totalVotes;
